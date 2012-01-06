@@ -1,0 +1,25 @@
+Source: freealut
+Priority: optional
+Maintainer: Seungbae Shin <seungbae.shin@samsung.com>, JongHyuk Choi <jhchoi.choi@samsung.com>
+Uploaders: Seungbae Shin <seungbae.shin@samsung.com>
+Build-Depends: debhelper (>= 5), autotools-dev, libopenal-soft-dev
+Standards-Version: 3.7.2
+Section: libs
+
+Package: libfreealut-dev
+Section: libdevel
+Architecture: any
+Depends: libfreealut (= ${Source-Version}), libopenal-soft-dev
+Description: OpenAL User Toolkit library development package
+
+Package: libfreealut
+Section: libs
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, libopenal-soft
+Description: OpenAL User Toolkit library package
+
+Package: libfreealut-dbg
+Section: debug
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, libfreealut (= ${Source-Version})
+Description: OpenAL User Toolkit library debug package (unstripped)
