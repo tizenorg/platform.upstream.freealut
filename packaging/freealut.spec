@@ -1,7 +1,7 @@
 Name:       freealut
 Summary:    OpenAL User Toolkit library
 Version:    1.1.0
-Release:    1
+Release:    2
 Group:      TO_BE/FILLED_IN
 License:    TO BE FILLED IN
 Source0:    %{name}-%{version}.tar.gz
