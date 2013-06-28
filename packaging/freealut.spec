@@ -5,6 +5,7 @@ Release:    2
 Group:      TO_BE/FILLED_IN
 License:    TO BE FILLED IN
 Source0:    %{name}-%{version}.tar.gz
+Source1001: 	freealut.manifest
 Requires(post): /sbin/ldconfig
 Requires(postun): /sbin/ldconfig
 BuildRequires:  pkgconfig(openal)
@@ -26,6 +27,7 @@ OpenAL User Toolkit library development package (devel)
 
 %prep
 %setup -q 
+cp %{SOURCE1001} .
 
 %build
 %configure --disable-static
@@ -44,13 +46,14 @@ rm -rf %{buildroot}
 
 
 %files
-%manifest freealut.manifest
+%manifest %{name}.manifest
 %defattr(-,root,root,-)
 %{_bindir}/freealut-config
 %{_libdir}/libalut.so.*
 
 
 %files devel
+%manifest %{name}.manifest
 %defattr(-,root,root,-)
 %{_includedir}/AL/alut.h
 %{_libdir}/libalut.so
