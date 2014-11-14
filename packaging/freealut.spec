@@ -2,18 +2,18 @@ Name:       freealut
 Summary:    OpenAL User Toolkit library
 Version:    1.1.0
 Release:    2
-Group:      TO_BE/FILLED_IN
-License:    TO BE FILLED IN
+Group:		System/Libraries
+URL:		http://openal.org/
+License:	LGPL-2.0
 Source0:    %{name}-%{version}.tar.gz
 Source1001: 	freealut.manifest
+BuildRequires:  pkgconfig(openal)
 Requires(post): /sbin/ldconfig
 Requires(postun): /sbin/ldconfig
-BuildRequires:  pkgconfig(openal)
 
 
 %description
 OpenAL User Toolkit library development package
-
 
 
 %package devel
@@ -26,12 +26,14 @@ OpenAL User Toolkit library development package (devel)
 
 
 %prep
-%setup -q 
+%setup -q
 cp %{SOURCE1001} .
+
 
 %build
 %configure --disable-static
-make %{?jobs:-j%jobs}
+%__make %{?_smp_mflags}
+
 
 %install
 rm -rf %{buildroot}
@@ -40,9 +42,6 @@ rm -rf %{buildroot}
 %post -p /sbin/ldconfig
 
 %postun -p /sbin/ldconfig
-
-
-
 
 
 %files
