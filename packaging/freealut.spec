@@ -1,7 +1,7 @@
 Name:       freealut
 Summary:    OpenAL User Toolkit library
 Version:    1.1.0
-Release:    2
+Release:    3
 Group:		System/Libraries
 URL:		http://openal.org/
 License:	LGPL-2.0
@@ -47,7 +47,7 @@ rm -rf %{buildroot}
 %files
 %manifest %{name}.manifest
 %defattr(-,root,root,-)
-%{_bindir}/freealut-config
+%exclude %{_bindir}/freealut-config
 %{_libdir}/libalut.so.*
 
 
